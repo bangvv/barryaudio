@@ -1,144 +1,22 @@
 
   // Dữ liệu mẫu
-  const stories = [
-    {
-      id: 1,
-      title: "Như Lai Thần Chưởng",
-      description: "Một câu chuyện đầy huyền bí về tu luyện, tiên đạo, và chiến đấu.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Bắt đầu", audioUrl: "mp3/yeulam.mp3" },
-        { id: 2, title: "Chương 2: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 3, title: "Chương 3: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 4, title: "Chương 4: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 5, title: "Chương 5: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 6, title: "Chương 6: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 7, title: "Chương 7: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 8, title: "Chương 8: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 9, title: "Chương 9: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 10, title: "Chương 10: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 11, title: "Chương 11: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-		{ id: 12, title: "Chương 12: Thử thách", audioUrl: "mp3/yeulam.mp3" },
-      ]
-    },
-    {
-      id: 2,
-      title: "Hiệp Khách Hành",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-    {
-      id: 3,
-      title: "Truyện Ngôn Tình Hay",
-      description: "Câu chuyện tình yêu lãng mạn, sâu sắc.",
-      type: "ngontinh",
-      chapters: [
-        { id: 1, title: "Chương 1: Gặp gỡ", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-    {
-      id: 4,
-      title: "Kinh Dị Đêm Trăng",
-      description: "Những câu chuyện rùng rợn trong đêm tối.",
-      type: "kinhdi",
-      chapters: [
-        { id: 1, title: "Chương 1: Bí ẩn", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 5,
-      title: "Bá vương ",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 6,
-      title: "Long Vương Thức Tỉnh",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 7,
-      title: "Huyền Thoại Ijmate",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 8,
-      title: "Hoa Thư",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 9,
-      title: "Phá Long",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 10,
-      title: "Triệu Khải Nguyên",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 11,
-      title: "Phá Long",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 12,
-      title: "Đấu Phá Thương Khung",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 13,
-      title: "Đấu La Đại Lục 1",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-	{
-      id: 14,
-      title: "Đấu La Đại Lục 2",
-      description: "Hành trình anh hùng trên con đường kiếm đạo đầy gian truân.",
-      type: "tienhiep",
-      chapters: [
-        { id: 1, title: "Chương 1: Lên đường", audioUrl: "mp3/yeulam.mp3" }
-      ]
-    },
-  ];
+  let stories = [];
+
+	async function reloadStories() {
+	  const url = 'https://raw.githubusercontent.com/bangvv/barryaudio/main/temp.json';
+
+	  try {
+		const res = await fetch(url);
+		if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
+		stories = await res.json();
+		filterStories();
+		renderStoryCards(filteredStories);
+	  } catch (err) {
+		console.log('Error:', err);
+	  }
+	}
+	
+	window.onload = reloadStories;
 
   const mainContent = document.getElementById("main-content");
   const searchInput = document.getElementById("search");
@@ -171,120 +49,82 @@
   }
 
   // Render danh sách card truyện
-  /*
-  function renderStoryCards(list) {
-    mainContent.innerHTML = "";
-    if (list.length === 0) {
-      mainContent.innerHTML = "<p>Không tìm thấy truyện nào.</p>";
-      return;
-    }
-    const container = document.createElement("div");
-    container.className = "grid-4";
-    list.forEach(story => {
-      const card = document.createElement("div");
-      card.className = "story-card";
+	let currentPage = 1;
+	const itemsPerPage = 12;
+	let currentList = [];
 
-      const title = document.createElement("h3");
-      title.className = "story-title";
-      title.textContent = story.title;
+	function renderStoryCards(list, page = 1) {
+	  currentList = list;
+	  currentPage = page;
 
-      const desc = document.createElement("p");
-      desc.className = "story-desc";
-      desc.textContent = story.description;
+	  mainContent.innerHTML = "";
 
-      const playBtn = document.createElement("button");
-      playBtn.className = "play-btn";
-      playBtn.textContent = "Nghe Truyện";
-      playBtn.onclick = () => openStoryDetail(story.id);
+	  const totalPages = Math.ceil(currentList.length / itemsPerPage);
+	  const start = (currentPage - 1) * itemsPerPage;
+	  const end = start + itemsPerPage;
+	  const pageItems = currentList.slice(start, end);
 
-      card.appendChild(title);
-      card.appendChild(desc);
-      card.appendChild(playBtn);
-      container.appendChild(card);
-    });
-    mainContent.appendChild(container);
-  }
-  */
-  
-				let currentPage = 1;
-				const itemsPerPage = 12;
-				let currentList = [];
+	  if (pageItems.length === 0) {
+		mainContent.innerHTML = "<p>Không tìm thấy truyện nào.</p>";
+		return;
+	  }
 
-				function renderStoryCards(list, page = 1) {
-				  currentList = list;
-				  currentPage = page;
+	  const container = document.createElement("div");
+	  container.className = "grid-4";
+	  pageItems.forEach(story => {
+		const card = document.createElement("div");
+		card.className = "story-card";
 
-				  mainContent.innerHTML = "";
+		const title = document.createElement("h3");
+		title.className = "story-title";
+		title.textContent = story.title;
 
-				  const totalPages = Math.ceil(currentList.length / itemsPerPage);
-				  const start = (currentPage - 1) * itemsPerPage;
-				  const end = start + itemsPerPage;
-				  const pageItems = currentList.slice(start, end);
+		const desc = document.createElement("p");
+		desc.className = "story-desc";
+		desc.textContent = story.description;
 
-				  if (pageItems.length === 0) {
-					mainContent.innerHTML = "<p>Không tìm thấy truyện nào.</p>";
-					return;
-				  }
+		const playBtn = document.createElement("button");
+		playBtn.className = "play-btn";
+		playBtn.textContent = "Nghe Truyện";
+		playBtn.onclick = () => openStoryDetail(story.id);
 
-				  const container = document.createElement("div");
-				  container.className = "grid-4";
-				  pageItems.forEach(story => {
-					const card = document.createElement("div");
-					card.className = "story-card";
+		card.appendChild(title);
+		card.appendChild(desc);
+		card.appendChild(playBtn);
+		container.appendChild(card);
+	  });
 
-					const title = document.createElement("h3");
-					title.className = "story-title";
-					title.textContent = story.title;
+	  mainContent.appendChild(container);
 
-					const desc = document.createElement("p");
-					desc.className = "story-desc";
-					desc.textContent = story.description;
+	  // Phân trang
+	  const pagination = document.createElement("div");
+	  pagination.className = "pagination";
 
-					const playBtn = document.createElement("button");
-					playBtn.className = "play-btn";
-					playBtn.textContent = "Nghe Truyện";
-					playBtn.onclick = () => openStoryDetail(story.id);
+	  // Nút Back
+	  const backBtn = document.createElement("button");
+	  backBtn.textContent = "« Back";
+	  backBtn.disabled = currentPage === 1;
+	  backBtn.onclick = () => renderStoryCards(currentList, currentPage - 1);
+	  pagination.appendChild(backBtn);
 
-					card.appendChild(title);
-					card.appendChild(desc);
-					card.appendChild(playBtn);
-					container.appendChild(card);
-				  });
+	  // Các số trang
+	  for (let i = 1; i <= totalPages; i++) {
+		const pageBtn = document.createElement("button");
+		pageBtn.textContent = i;
+		if (i === currentPage) pageBtn.classList.add("active");
+		pageBtn.onclick = () => renderStoryCards(currentList, i);
+		pagination.appendChild(pageBtn);
+	  }
 
-				  mainContent.appendChild(container);
+	  // Nút Next
+	  const nextBtn = document.createElement("button");
+	  nextBtn.textContent = "Next »";
+	  nextBtn.disabled = currentPage === totalPages;
+	  nextBtn.onclick = () => renderStoryCards(currentList, currentPage + 1);
+	  pagination.appendChild(nextBtn);
 
-				  // Phân trang
-				  const pagination = document.createElement("div");
-				  pagination.className = "pagination";
-
-				  // Nút Back
-				  const backBtn = document.createElement("button");
-				  backBtn.textContent = "« Back";
-				  backBtn.disabled = currentPage === 1;
-				  backBtn.onclick = () => renderStoryCards(currentList, currentPage - 1);
-				  pagination.appendChild(backBtn);
-
-				  // Các số trang
-				  for (let i = 1; i <= totalPages; i++) {
-					const pageBtn = document.createElement("button");
-					pageBtn.textContent = i;
-					if (i === currentPage) pageBtn.classList.add("active");
-					pageBtn.onclick = () => renderStoryCards(currentList, i);
-					pagination.appendChild(pageBtn);
-				  }
-
-				  // Nút Next
-				  const nextBtn = document.createElement("button");
-				  nextBtn.textContent = "Next »";
-				  nextBtn.disabled = currentPage === totalPages;
-				  nextBtn.onclick = () => renderStoryCards(currentList, currentPage + 1);
-				  pagination.appendChild(nextBtn);
-
-				  mainContent.appendChild(pagination);
-				}
-
-
-  
+	  mainContent.appendChild(pagination);
+	}
 
   // Mở màn hình chi tiết truyện
   function openStoryDetail(id) {
@@ -428,7 +268,3 @@
     renderStoryCards(filteredStories);
     selectedStory = null;
   });
-
-  // Khởi tạo lần đầu
-  filterStories();
-  renderStoryCards(filteredStories);
