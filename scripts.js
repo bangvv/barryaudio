@@ -3,7 +3,7 @@
   let stories = [];
 
 	async function reloadStories() {
-	  const url = 'https://raw.githubusercontent.com/bangvv/audiojson/main/temp.json';
+	  const url = 'https://raw.githubusercontent.com/bangvv/audiojson/main/temp.json?v=' + Date.now();
 
 	  try {
 		const res = await fetch(url);
