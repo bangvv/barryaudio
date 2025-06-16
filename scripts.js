@@ -32,21 +32,26 @@ let selectedStory = null;
 // Lọc truyện theo thể loại và tìm kiếm
 function filterStories() {
   const q = searchInput.value.trim().toLowerCase();
+  const isMatch = (s) =>
+    s.title.toLowerCase().includes(q) ||
+    s.description.toLowerCase().includes(q);
+
   if (currentType === "home") {
+    filteredStories = stories.filter(isMatch);
+  } else if (currentType === "khac") {
+    // Chọn các truyện không thuộc 3 loại chính
     filteredStories = stories.filter(
       s =>
-        s.title.toLowerCase().includes(q) ||
-        s.description.toLowerCase().includes(q)
+        !["tienhiep", "ngontinh", "kinhdi"].includes(s.type) &&
+        isMatch(s)
     );
   } else {
     filteredStories = stories.filter(
-      s =>
-        s.type === currentType &&
-        (s.title.toLowerCase().includes(q) ||
-          s.description.toLowerCase().includes(q))
+      s => s.type === currentType && isMatch(s)
     );
   }
 }
+
 
 // Render danh sách card truyện
 let currentPage = 1;
@@ -280,9 +285,12 @@ menuButtons.forEach(btn => {
   });
 });
 
-// Xử lý tìm kiếm
+let debounceTimer;
 searchInput.addEventListener("input", () => {
-  filterStories();
-  renderStoryCards(filteredStories);
-  selectedStory = null;
+  clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => {
+    filterStories();
+    renderStoryCards(filteredStories);
+    selectedStory = null;
+  }, 500); // chỉ chạy sau khi người dùng ngưng gõ 300ms
 });
