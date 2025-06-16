@@ -3,11 +3,11 @@
 let stories = [];
 
 async function reloadStories() {
-  const url = 'https://server.hngame.store/stories'; // Đã cache 60s ở server
+  const url = 'https://server.hngame.store/stories';
 
   try {
     const res = await fetch(url, {
-      headers: { 'Cache-Control': 'no-cache' }, // Thêm nếu muốn tránh cache phía client
+      headers: { 'Cache-Control': 'no-cache' },
     });
     if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
     const data = await res.json();
@@ -189,7 +189,6 @@ async function openStoryDetail(id) {
 
 function playChapter(storyId, chapterId) {
   const story = stories.find(s => s.id === storyId);
-  console.log("story:", story);
   if (!story) return;
 
   const chapter = story.chapters.find(ch => ch.id === chapterId);
@@ -219,10 +218,8 @@ audioElem.addEventListener("ended", () => {
   const currentIndex = story.chapters.findIndex(ch => ch.id === currentChapterId);
   if (currentIndex >= 0 && currentIndex < story.chapters.length - 1) {
     const nextChapter = story.chapters[currentIndex + 1];
-    console.log("Chuyển sang chương tiếp theo:", nextChapter.id);
     playChapter(currentStoryId, nextChapter.id);
   } else {
-    console.log("Đã hết chương.");
     audioPlayer.style.display = "none";
     playingTitle.textContent = "Đang phát: ";
     currentChapterId = null;
