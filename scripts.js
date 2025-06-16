@@ -3,18 +3,24 @@
 let stories = [];
 
 async function reloadStories() {
-  const url = 'https://raw.githubusercontent.com/bangvv/audiojson/main/temp.json?v=' + Date.now();
+  const url = 'https://server.hngame.store/stories'; // Đã cache 60s ở server
 
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      headers: { 'Cache-Control': 'no-cache' }, // Thêm nếu muốn tránh cache phía client
+    });
     if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
-    stories = await res.json();
+    const data = await res.json();
+    
+    stories = data;
     filterStories();
     renderStoryCards(filteredStories);
   } catch (err) {
-    console.log('Error:', err);
+    console.error('Error loading stories:', err);
   }
 }
+
+
 
 window.onload = reloadStories;
 
