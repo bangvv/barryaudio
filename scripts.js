@@ -32,9 +32,7 @@ async function reloadStories() {
   }
 }
 
-
-
-//window.onload = reloadStories;
+window.onload = reloadStories;
 
 const mainContent = document.getElementById("main-content");
 const searchInput = document.getElementById("search");
