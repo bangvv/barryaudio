@@ -291,7 +291,7 @@
     color: white;
     font-family: sans-serif;
     width: 100%;
-    max-width: 600px;
+    max-width: 750px;
   }
 
   #progress {
@@ -307,6 +307,19 @@
     cursor: pointer;
     color: white;
   }
+  #controlSeek{
+    display: flex;
+	gap: 8px; /* khoảng cách giữa các nút */
+	align-items: center;
+	flex-wrap: nowrap; /* không cho xuống dòng */
+  }
+	#time-container {
+		white-space: nowrap;
+		font-size: clamp(0.70rem, 2vw, 0.85rem);
+		flex-shrink: 0;
+		justify-content: center;
+	}
+  
   /* Responsive cho màn hình nhỏ */
 	@media (max-width: 600px) {
 		#audio-player {
@@ -317,7 +330,7 @@
 
 		#playing-title {
 			width: 100%;
-			font-size: 0.95rem;
+			font-size: clamp(0.75rem, 2vw, 0.95rem);
 			margin-bottom: 4px;
 		}
 
@@ -348,8 +361,9 @@
 
 		#time-container {
 			white-space: nowrap;
-			font-size: 0.85rem;
+			font-size: clamp(0.70rem, 2vw, 0.85rem);
 			flex-shrink: 0;
+			justify-content: center;
 		}
 
 		#progress {
@@ -358,6 +372,13 @@
 			border-radius: 6px;
 			accent-color: #ff4081;
 			flex-shrink: 0;
+		}
+		#controlSeek{
+			display: flex;
+			justify-content: center;
+			gap: 8px; /* khoảng cách giữa các nút */
+			align-items: center;
+			flex-wrap: nowrap; /* không cho xuống dòng */
 		}
 
 	}
@@ -387,8 +408,14 @@
 
 <div id="audio-player" >
   <div id="playing-title">Đang phát: </div>
+  <div id="controlSeek">
+    <button id="rewind-50">50s</button>
+    <button id="rewind-10">10s</button>
+    <button id="play-pause">⏸️</button>
+    <button id="forward-10">10s</button>
+    <button id="forward-50">50s</button>
+  </div>
   <div id="custom-audio-player">
-  <button id="play-pause">⏸️</button>
 	<div id="time-container">
 	  <span id="current-time">0:00</span> / <span id="duration">0:00</span>
 	</div>

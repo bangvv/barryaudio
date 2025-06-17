@@ -2,6 +2,16 @@
 // Dữ liệu mẫu
 let stories = [];
 
+stories  = [
+{
+    "id": 1,
+    "title": "Phàm Nhân Tu Tiên 1 & 2 Full",
+    "description": "Truyện tiên hiệp Phàm Nhân Tu Tiên 1 & 2 Full",
+    "type": "tienhiep",
+    "linkChapter": "mp3/yeulam.mp3"
+  }
+];
+
 async function reloadStories() {
   const url = 'https://server.hngame.store/stories';
 
@@ -22,7 +32,7 @@ async function reloadStories() {
 
 
 
-window.onload = reloadStories;
+//window.onload = reloadStories;
 
 const mainContent = document.getElementById("main-content");
 const searchInput = document.getElementById("search");
@@ -30,6 +40,22 @@ const menuButtons = document.querySelectorAll(".menu-btn");
 const audioPlayer = document.getElementById("audio-player");
 const audioElem = document.getElementById("audio");
 const playingTitle = document.getElementById("playing-title");
+
+document.getElementById('rewind-50').addEventListener('click', () => {
+  audioElem.currentTime = Math.max(audioElem.currentTime - 50, 0);
+});
+
+document.getElementById('rewind-10').addEventListener('click', () => {
+  audioElem.currentTime = Math.max(audioElem.currentTime - 10, 0);
+});
+
+document.getElementById('forward-10').addEventListener('click', () => {
+  audioElem.currentTime = Math.min(audioElem.currentTime + 10, audioElem.duration);
+});
+
+document.getElementById('forward-50').addEventListener('click', () => {
+  audioElem.currentTime = Math.min(audioElem.currentTime + 50, audioElem.duration);
+});
 
 let currentType = "home"; // menu chọn
 let filteredStories = stories;
@@ -143,6 +169,7 @@ async function openStoryDetail(id) {
   if (!selectedStory || !selectedStory.linkChapter) return;
 
   try {
+	/*
     // 1. Tải danh sách chương từ linkChapter
     const res = await fetch(selectedStory.linkChapter);
     if (!res.ok) throw new Error("Không tải được danh sách chương");
@@ -150,6 +177,11 @@ async function openStoryDetail(id) {
 
     // 2. Lưu vào selectedStory
     selectedStory.chapters = chapters;
+	*/
+	
+	selectedStory.chapters = [
+		{ "id": 1, "title": "Phần 1", "audioUrl": "https://archive.org/download/adldl-4-26/ADLDL4_1.webm" }
+	]
 
     // 3. Render giao diện chi tiết
     mainContent.innerHTML = `
@@ -240,11 +272,7 @@ function formatTime(seconds) {
   const mins = Math.floor((seconds % 3600) / 60);
   const secs = Math.floor(seconds % 60);
 
-  if (hrs > 0) {
-    return `${hrs}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  } else {
-    return `${mins}:${secs.toString().padStart(2, "0")}`;
-  }
+  return `${hrs.toString().padStart(2, "0")}:${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
 }
 
 
