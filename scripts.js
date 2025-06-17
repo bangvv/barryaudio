@@ -2,6 +2,7 @@
 // Dữ liệu mẫu
 let stories = [];
 
+/*
 stories  = [
 {
     "id": 1,
@@ -11,6 +12,7 @@ stories  = [
     "linkChapter": "mp3/yeulam.mp3"
   }
 ];
+*/
 
 async function reloadStories() {
   const url = 'https://server.hngame.store/stories';
@@ -169,7 +171,7 @@ async function openStoryDetail(id) {
   if (!selectedStory || !selectedStory.linkChapter) return;
 
   try {
-	/*
+	
     // 1. Tải danh sách chương từ linkChapter
     const res = await fetch(selectedStory.linkChapter);
     if (!res.ok) throw new Error("Không tải được danh sách chương");
@@ -177,11 +179,12 @@ async function openStoryDetail(id) {
 
     // 2. Lưu vào selectedStory
     selectedStory.chapters = chapters;
-	*/
 	
+	/*
 	selectedStory.chapters = [
-		{ "id": 1, "title": "Phần 1", "audioUrl": "https://archive.org/download/adldl-4-26/ADLDL4_1.webm" }
+		{ "id": 1, "title": "Phần 1", "audioUrl": "mp3/yeulam.mp3" }
 	]
+	*/
 
     // 3. Render giao diện chi tiết
     mainContent.innerHTML = `
