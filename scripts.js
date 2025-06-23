@@ -51,7 +51,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 async function reloadStories() {
-  const url = 'https://server.hngame.store/stories';
+  const url = 'https://serverweb.appsweb.workers.dev/stories';
 
   try {
     const res = await fetch(url, {
