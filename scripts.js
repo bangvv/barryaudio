@@ -15,11 +15,11 @@ stories  = [
 */
 
 // START Login HANDLE
-window.addEventListener('DOMContentLoaded', () => {
+//window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('login-btn')?.addEventListener('click', () => {
     console.log("click login");
-	window.open('https://serverweb.appsweb.workers.dev/login', '_self');
-    //window.location.href = 'https://serverweb.appsweb.workers.dev/login';
+	//window.open('https://serverweb.appsweb.workers.dev/login', '_self');
+    window.location.href = 'https://serverweb.appsweb.workers.dev/login';
   });
 
   function getCookie(name) {
@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById('user-greeting').textContent = `Xin chào, ${name}!`;
     document.getElementById('login-btn').style.display = 'none';
   }
-});
+//});
 
 // ENDS Login HANDLE
 
