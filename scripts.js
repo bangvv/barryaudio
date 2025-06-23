@@ -28,9 +28,9 @@ function getCookie(name) {
 
 const email = getCookie("user_email");
 const name = getCookie("user_name");
+	console.log(`✅ Đăng nhập thành công: ${email} - ${name}`);
 
 if (email && name) {
-	console.log(`✅ Đăng nhập thành công: ${email} - ${name}`);
   document.getElementById('user-greeting').textContent = `Xin chào, ${name}!`;
   document.getElementById('login-btn').style.display = 'none';
 }
