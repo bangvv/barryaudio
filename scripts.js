@@ -14,6 +14,11 @@ stories  = [
 ];
 */
 
+// START Login HANDLE
+document.getElementById('login-btn').addEventListener('click', () => {
+  window.location.href = 'https://serverweb.appsweb.workers.dev/login';
+});
+
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
@@ -27,7 +32,7 @@ if (email && name) {
   document.getElementById('user-greeting').textContent = `Xin chào, ${name}!`;
   document.getElementById('login-btn').style.display = 'none';
 }
-
+// ENDS Login HANDLE
 
 
 async function reloadStories() {
