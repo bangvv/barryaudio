@@ -51,12 +51,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 async function reloadStories() {
-  const url = 'https://serverweb.appsweb.workers.dev/stories';
+  const email = localStorage.getItem("user_email");
 
   try {
-    const res = await fetch(url, {
-      headers: { 'Cache-Control': 'no-cache' },
+    const res = await fetch('https://serverweb.appsweb.workers.dev/stories', {
+      method: 'GET',
+      headers: {
+        'Cache-Control': 'no-cache',
+        'X-User-Email': email || ""
+      }
     });
+
     if (!res.ok) throw new Error(`Failed to fetch: ${res.status}`);
     const data = await res.json();
     
@@ -67,6 +72,7 @@ async function reloadStories() {
     console.error('Error loading stories:', err);
   }
 }
+
 
 window.onload = reloadStories;
 
