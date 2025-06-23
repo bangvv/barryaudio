@@ -15,29 +15,38 @@ stories  = [
 */
 
 // START Login HANDLE
-//window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('login-btn')?.addEventListener('click', () => {
-    console.log("click login");
-	//window.open('https://serverweb.appsweb.workers.dev/login', '_self');
+window.addEventListener('DOMContentLoaded', () => {
+  const loginBtn = document.getElementById('login-btn');
+  const userGreeting = document.getElementById('user-greeting');
+
+  loginBtn?.addEventListener('click', () => {
+    console.log("Click login");
     window.location.href = 'https://serverweb.appsweb.workers.dev/login';
   });
 
-  function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length >= 2) return decodeURIComponent(parts.pop().split(";").shift());
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get("name");
+  const email = params.get("email");
+
+  if (name && email) {
+    localStorage.setItem("user_name", name);
+    localStorage.setItem("user_email", email);
+
+    if (loginBtn) loginBtn.style.display = 'none';
+    if (userGreeting) userGreeting.textContent = `Xin chào, ${name}!`;
+
+    // Xoá param khỏi URL sau khi xử lý
+    window.history.replaceState({}, document.title, window.location.pathname);
+  } else {
+    const savedName = localStorage.getItem("user_name");
+    const savedEmail = localStorage.getItem("user_email");
+
+    if (savedName && savedEmail) {
+      if (loginBtn) loginBtn.style.display = 'none';
+      if (userGreeting) userGreeting.textContent = `Xin chào, ${savedName}!`;
+    }
   }
-
-  const email = getCookie("user_email");
-  const name = getCookie("user_name");
-  console.log(`✅ Đăng nhập thành công: ${email} - ${name}`);
-
-  if (email && name) {
-    document.getElementById('user-greeting').textContent = `Xin chào, ${name}!`;
-    document.getElementById('login-btn').style.display = 'none';
-  }
-//});
-
+});
 // ENDS Login HANDLE
 
 
