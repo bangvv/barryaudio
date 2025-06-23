@@ -72,6 +72,15 @@
     color: white;
     transition: background-color 0.3s;
   }
+  	  #login-btn {
+	  padding: 4px 8px;
+	  background-color: #007bff;
+	  color: white;
+	  border: none;
+	  border-radius: 6px;
+	  cursor: pointer;
+	}
+
   #search::placeholder {
     color: #eee;
   }
@@ -390,16 +399,26 @@
 </style>
 </head>
 <body>
-<header>
-  <nav>
+<header style="position: relative; padding: 10px;">
+  <!-- Nút Đăng nhập bên phải -->
+  <div id="login-box" style="position: absolute; top: 5px; right: 10px; display: flex; align-items: center;">
+    <button id="login-btn">Đăng nhập</button>
+    <span id="user-greeting" style="margin-left: 8px;"></span>
+  </div>
+
+  <!-- Thanh menu -->
+  <nav style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 6px;>
     <button data-type="home" class="menu-btn active">Home</button>
     <button data-type="tienhiep" class="menu-btn">Truyện Tiên Hiệp</button>
     <button data-type="ngontinh" class="menu-btn">Truyện Ngôn Tình</button>
     <button data-type="kinhdi" class="menu-btn">Truyện Kinh Dị</button>
-	<button data-type="khac" class="menu-btn">Truyện Khác</button>
+    <button data-type="khac" class="menu-btn">Truyện Khác</button>
   </nav>
+
+  <!-- Ô tìm kiếm -->
   <input id="search" placeholder="Tìm kiếm truyện..." autocomplete="off" />
 </header>
+
 
 <main id="main-content">
   <!-- Nội dung sẽ được render ở đây -->
