@@ -18,7 +18,8 @@ stories  = [
 window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('login-btn')?.addEventListener('click', () => {
     console.log("click login");
-    window.location.href = 'https://serverweb.appsweb.workers.dev/login';
+	window.open('https://serverweb.appsweb.workers.dev/login', '_self');
+    //window.location.href = 'https://serverweb.appsweb.workers.dev/login';
   });
 
   function getCookie(name) {
