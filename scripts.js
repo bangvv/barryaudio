@@ -16,6 +16,7 @@ stories  = [
 
 // START Login HANDLE
 document.getElementById('login-btn').addEventListener('click', () => {
+	console.log("click login")
   window.location.href = 'https://serverweb.appsweb.workers.dev/login';
 });
 
