@@ -2,19 +2,6 @@
 // Dữ liệu mẫu
 let stories = [];
 
-/*
-stories  = [
-{
-    "id": 1,
-    "title": "Phàm Nhân Tu Tiên 1 & 2 Full",
-    "description": "Truyện tiên hiệp Phàm Nhân Tu Tiên 1 & 2 Full",
-    "type": "tienhiep",
-    "linkChapter": "mp3/yeulam.mp3"
-  }
-];
-*/
-
-// START Login HANDLE
 window.addEventListener('DOMContentLoaded', () => {
   const loginBtn = document.getElementById('login-btn');
   const userGreeting = document.getElementById('user-greeting');
@@ -47,14 +34,11 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
-// ENDS Login HANDLE
-
 
 async function reloadStories() {
   const email = encodeURIComponent(localStorage.getItem("user_email") || "");
-
   const url = `https://serverweb.appsweb.workers.dev/stories?email=${email}`;
-	console.log(`url: ${url}`)
+  
   try {
     const res = await fetch(url, {
       method: 'GET',
@@ -101,11 +85,10 @@ document.getElementById('forward-50').addEventListener('click', () => {
   audioElem.currentTime = Math.min(audioElem.currentTime + 50, audioElem.duration);
 });
 
-let currentType = "home"; // menu chọn
+let currentType = "home";
 let filteredStories = stories;
 let selectedStory = null;
 
-// Lọc truyện theo thể loại và tìm kiếm
 function filterStories() {
   const q = searchInput.value.trim().toLowerCase();
   const isMatch = (s) =>
@@ -115,7 +98,6 @@ function filterStories() {
   if (currentType === "home") {
     filteredStories = stories.filter(isMatch);
   } else if (currentType === "khac") {
-    // Chọn các truyện không thuộc 3 loại chính
     filteredStories = stories.filter(
       s =>
         !["tienhiep", "ngontinh", "kinhdi"].includes(s.type) &&
@@ -128,8 +110,6 @@ function filterStories() {
   }
 }
 
-
-// Render danh sách card truyện
 let currentPage = 1;
 const itemsPerPage = 12;
 let currentList = [];
