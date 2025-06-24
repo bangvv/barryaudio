@@ -54,7 +54,7 @@ async function reloadStories() {
   const email = encodeURIComponent(localStorage.getItem("user_email") || "");
 
   const url = `https://serverweb.appsweb.workers.dev/stories?email=${email}`;
-
+	console.log(`url: ${url}`)
   try {
     const res = await fetch(url, {
       method: 'GET',
