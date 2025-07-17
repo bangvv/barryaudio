@@ -307,6 +307,15 @@ function updateProgress() {
   progressInput.value = Math.floor(audioElem.currentTime);
 }
 
+audioElem.addEventListener("pause", () => {
+  playPauseBtn.textContent = "▶️";
+});
+
+audioElem.addEventListener("play", () => {
+  playPauseBtn.textContent = "⏸️";
+});
+
+
 // Điều khiển play/pause nút
 const playPauseBtn = document.getElementById("play-pause");
 playPauseBtn.addEventListener("click", () => {
