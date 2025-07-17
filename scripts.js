@@ -324,10 +324,34 @@ const progressInput = document.getElementById("progress");
 const currentTimeSpan = document.getElementById("current-time");
 const durationSpan = document.getElementById("duration");
 
-progressInput.addEventListener("input", () => {
-  audioElem.currentTime = progressInput.value;
+// Hàm cập nhật thời gian và tua đến vị trí mới
+function seekTo(value) {
+  audioElem.currentTime = value;
   currentTimeSpan.textContent = formatTime(audioElem.currentTime);
+}
+
+// Khi người dùng đang kéo slider
+progressInput.addEventListener("input", () => {
+  seekTo(progressInput.value);
 });
+
+// Đảm bảo cập nhật sau khi kéo xong
+progressInput.addEventListener("change", () => {
+  seekTo(progressInput.value);
+});
+
+// Cập nhật khi audio đang phát
+function updateProgress() {
+  currentTimeSpan.textContent = formatTime(audioElem.currentTime);
+  progressInput.value = Math.floor(audioElem.currentTime);
+}
+
+// Khi metadata load xong thì thiết lập max cho slider
+audioElem.addEventListener("loadedmetadata", () => {
+  durationSpan.textContent = formatTime(audioElem.duration);
+  progressInput.max = Math.floor(audioElem.duration);
+});
+
 
 // Xử lý menu chọn loại truyện
 menuButtons.forEach(btn => {
