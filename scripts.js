@@ -255,6 +255,7 @@ function playChapter(storyId, chapterId) {
   currentStoryId = storyId;
 
   audioElem.src = chapter.audioUrl;
+  audioElem.load();
   audioElem.play();
 
   playingTitle.textContent = `Đang phát: ${story.title} - ${chapter.title}`;
